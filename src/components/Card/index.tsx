@@ -25,10 +25,10 @@ const Card = ({ i, title, description, src, url, color, progress, range, targetS
                     className={styles.imageContainer}
                     layoutId={`card-image-container-${i}`}
                 >
-                    <img className="card-image" src={`images/${src}`} alt="" />
+                    <img className={styles.inner} src={`images/${src}`} alt="" />
                 </motion.div>
                 <motion.div
-                    className="title-container"
+                    className={styles.titleContainer}
                     layoutId={`title-container-${i}`}
                 >
                     {/* <span className="category">{category}</span> */}
