@@ -91,7 +91,84 @@
     }
 }
 
-.open .titleContainer {
-    top: 30px;
-    left: 30px;
+.open {
+    z-index: 1;
+
+    .titleContainer {
+        top: 30px;
+        left: 30px;
+
+    }
+
+    .cardContainer {
+        top: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+        z-index: 1;
+        // overflow: hidden;
+        // padding: 40px 0;
+    }
+
+    .cardContent {
+        height: auto;
+        max-width: 700px;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .detailImageContainer {
+        z-index: 1;
+    }
+}
+
+.overlay {
+    z-index: 1;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    will-change: opacity;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 990px;
+}
+
+.cardContent {
+    pointer-events: auto;
+    position: relative;
+    border-radius: 20px;
+    background: #1c1c1e;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.detailImageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 420px;
+    width: 100vw;
+
+    .inner {
+        pointer-events: auto;
+        position: relative;
+        border-radius: 20px;
+        background: #1c1c1e;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+
+.contentContainer {
+    padding: 460px 35px 35px 35px;
+    max-width: 700px;
+    width: 90vw;
 }

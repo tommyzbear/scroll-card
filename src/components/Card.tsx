@@ -1,25 +1,26 @@
 'use client'
-import Image from 'next/image';
+// import Image from 'next/image';
 import styles from './style.module.scss';
-import { useTransform, motion, useScroll, MotionValue } from 'framer-motion';
+import { useTransform, motion, MotionValue } from 'framer-motion';
 import { useRef } from 'react';
 
-const Card = ({ i, title, description, src, url, color, progress, range, targetScale }: { i: number, title: string, description: string, src: string, url: string, color: string, progress: MotionValue<number>, range: number[], targetScale: number }) => {
+const Card = ({ i, title, description, src, url, color, progress, range, targetScale, setSelectedId }: { i: number, title: string, description: string, src: string, url: string, color: string, progress: MotionValue<number>, range: number[], targetScale: number, setSelectedId: (id: number) => void }) => {
 
     const container = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ['start end', 'start start']
-    })
 
-    const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1])
     const scale = useTransform(progress, range, [1, targetScale]);
+
+    console.log(description)
+    console.log(url)
 
     return (
         <div ref={container} className={styles.cardContainer}>
             <motion.div
                 style={{ backgroundColor: color, scale, top: `calc(-5vh + ${i * 25}px)` }}
                 className={styles.card}
+                onClick={() => setSelectedId(i)}
+                whileHover={{ cursor: 'pointer' }}
+                layoutId={`card-container-${i}`}
             >
                 <motion.div
                     className={styles.imageContainer}
